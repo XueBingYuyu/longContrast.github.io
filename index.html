@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./echarts.js"></script>
+    <style>
+        #highwayLong {
+            width: 650px;
+            height: 300px;
+            /* background-color: pink; */
+            right: 10px;
+        }
+
+        #roadwayLong {
+            width: 650px;
+            height: 300px;
+            /* background-color: pink; */
+            right: 10px;
+        }
+
+        /* 设置包含图表容器的容器的样式，使其靠右排列 */
+        .chart-wrapper {
+            display: flex;
+            /* 使用 Flex 布局 */
+            flex-direction: column;
+            /* 设置主轴方向为垂直，使其上下排列 */
+            /* align-items: flex-end; */
+            /* 设置项目在交叉轴上对齐方式为末尾对齐，使其靠右排列 */
+            /* margin-right: 100px; */
+            margin-left: 350px;
+            margin-top: 0px;
+
+        }
+
+        /* 设置图表容器的样式 */
+        .chart-container {
+            margin-bottom: -15px;
+            /* 设置图表容器之间的垂直间距 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chart-wrapper">
+        
+        <div id="roadwayLong" class="chart-container"></div>
+        <div id="highwayLong" class="chart-container"></div>
+    </div>
+    <script>
+        var chartDom = document.getElementById('highwayLong');
+        var myChart1 = echarts.init(chartDom);
+        var option1;
+        option1 = {
+            title: {
+                text: '2015-2022年我国铁路长隧道数量及长度统计',
+                top: 30,
+                left: 'center'
+            },
+            grid: {
+                top: 110
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            // toolbox: {
+            //     feature: {
+            //         dataView: { show: true, readOnly: false },
+            //         magicType: { show: true, type: ['line', 'bar'] },
+            //         restore: { show: true },
+            //         saveAsImage: { show: true }
+            //     }
+            // },
+            legend: {
+                data: ['隧道数量（处）', '隧道长度（千米）'],
+                top: 70
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '隧道数量（处）',
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                },
+                {
+                    type: 'value',
+                    name: '隧道长度（千米）',
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '隧道数量（处）',
+                    type: 'bar',
+                    tooltip: {
+                        valueFormatter: function (value) {
+                            return value + ' 处';
+                        }
+                    },
+                    data: [13411, 14100, 14547, 15117, 16084, 16798, 17532, 17873]
+                },
+                {
+                    name: '隧道长度（千米）',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    tooltip: {
+                        valueFormatter: function (value) {
+                            return value + ' 千米';
+                        }
+                    },
+                    data: [13038, 14120, 15326, 16331, 18041, 19630, 21055, 21978]
+                }
+            ]
+        };
+        option1 && myChart1.setOption(option1);
+
+        var chartDom = document.getElementById('roadwayLong');
+        var myChart2 = echarts.init(chartDom);
+        var option2;
+        option2 = {
+            title: {
+                text: '2010-2022年我国公路长隧道数量及长度统计',
+                top: 30,
+                left: 'center'
+            },
+            grid: {
+                top: 110
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            // toolbox: {
+            //     feature: {
+            //         dataView: { show: true, readOnly: false },
+            //         magicType: { show: true, type: ['line', 'bar'] },
+            //         restore: { show: true },
+            //         saveAsImage: { show: true }
+            //     }
+            // },
+            legend: {
+                data: ['隧道数量（处）', '隧道长度（千米）'],
+                top: 70
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '隧道数量（处）',
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                },
+                {
+                    type: 'value',
+                    name: '隧道长度（千米）',
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '隧道数量（处）',
+                    type: 'bar',
+                    tooltip: {
+                        valueFormatter: function (value) {
+                            return value + ' 处';
+                        }
+                    },
+                    data: [7384, 8522, 10022, 11359, 12404, 14006, 15181, 16229, 17738, 19067, 21316, 23268, 24850]
+                },
+                {
+                    name: '隧道长度（千米）',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    tooltip: {
+                        valueFormatter: function (value) {
+                            return value + ' 千米';
+                        }
+                    },
+                    data: [512.26, 625.34, 805.27, 960.60, 1075.67, 1268.39, 1403.97, 1528.51, 1723.61, 1896.66, 2199.93, 2469.89, 2678.43]
+                }
+            ]
+        };
+        option2 && myChart2.setOption(option2);
+    </script>
+</body>
+
+</html>
