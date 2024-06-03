@@ -31,14 +31,14 @@
             /* align-items: flex-end; */
             /* 设置项目在交叉轴上对齐方式为末尾对齐，使其靠右排列 */
             /* margin-right: 100px; */
-<<<<<<< HEAD
+
             justify-content: center;
             /* 水平居中 */
             align-items: center;
             /* 垂直居中 */
-=======
+
             align-items: center;
->>>>>>> 59507a5c6855cb46e18ed90cee348541ec73ae95
+
             margin-top: 0px;
 
         }
@@ -172,7 +172,7 @@
             //     }
             // },
             legend: {
-                data: ['隧道数量（处）', '隧道长度（千米）'],
+                data: ['隧道数量（处）', '隧道长度（万米）'],
                 top: 70
             },
             xAxis: [
@@ -194,7 +194,7 @@
                 },
                 {
                     type: 'value',
-                    name: '隧道长度（千米）',
+                    name: '隧道长度（万米）',
                     axisLabel: {
                         formatter: '{value}'
                     }
@@ -212,12 +212,12 @@
                     data: [7384, 8522, 10022, 11359, 12404, 14006, 15181, 16229, 17738, 19067, 21316, 23268, 24850]
                 },
                 {
-                    name: '隧道长度（千米）',
+                    name: '隧道长度（万米）',
                     type: 'line',
                     yAxisIndex: 1,
                     tooltip: {
                         valueFormatter: function (value) {
-                            return value + ' 千米';
+                            return value + ' 万米';
                         }
                     },
                     data: [512.26, 625.34, 805.27, 960.60, 1075.67, 1268.39, 1403.97, 1528.51, 1723.61, 1896.66, 2199.93, 2469.89, 2678.43]
